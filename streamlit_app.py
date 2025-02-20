@@ -31,8 +31,8 @@ with st.form("product_details_form"):
     endpoint_options = [
         "Generate Headlines Only",
         
-        "Generate Template (Stability)",
-        "Generate Template with Headlines (Stability)"
+        "Generate Template",
+        "Generate Template with Headlines"
     ]
     endpoint_selection = st.selectbox("Select Endpoint to Test", endpoint_options)
     
@@ -86,12 +86,12 @@ if submit_button:
                             st.image(url, caption=f"Image {i+1}", use_container_width=True)
                             st.markdown(f"[Open in new tab]({url})")
             
-            elif endpoint_selection == "Generate Template (Stability)":
+            elif endpoint_selection == "Generate Template ":
                 response = requests.post(SD_ENDPOINT, json=payload)
                 
                 if response.status_code == 200:
                     data = response.json()
-                    st.success("Stability AI images generated successfully!")
+                    st.success("Images generated successfully!")
                     
                     st.subheader("Generated Images")
                     columns = st.columns(len(data["image_urls"]))
@@ -101,7 +101,7 @@ if submit_button:
                             st.image(url, caption=f"Image {i+1}", use_container_width=True)
                             st.markdown(f"[Open in new tab]({url})")
             
-            elif endpoint_selection == "Generate Template with Headlines (Stability)":
+            elif endpoint_selection == "Generate Template with Headlines ":
                 response = requests.post(SD_WITH_HEADLINES_ENDPOINT, json=payload)
                 
                 if response.status_code == 200:
@@ -134,8 +134,8 @@ with st.expander("API Endpoints Information"):
     
     1. **GET /**: Health check endpoint
     2. **POST /get-headlines/**: Generates marketing headlines for a product
-    4. **POST /generate-template-sd/**: Generates product ads using Stability AI
-    5. **POST /generate-template-sd-with-headlines/**: Generates product ads with headlines using Stability AI
+    4. **POST /generate-template-sd/**: Generates product ads 
+    5. **POST /generate-template-sd-with-headlines/**: Generates product ads with headlines 
     
     ### Request Format Example
     ```json
