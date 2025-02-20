@@ -83,7 +83,7 @@ if submit_button:
                     
                     for i, (col, url) in enumerate(zip(columns, data["image_urls"])):
                         with col:
-                            st.image(url, caption=f"Image {i+1}", use_column_width=True)
+                            st.image(url, caption=f"Image {i+1}", use_container_width=True)
                             st.markdown(f"[Open in new tab]({url})")
             
             elif endpoint_selection == "Generate Template (Stability)":
@@ -98,7 +98,7 @@ if submit_button:
                     
                     for i, (col, url) in enumerate(zip(columns, data["image_urls"])):
                         with col:
-                            st.image(url, caption=f"Image {i+1}", use_column_width=True)
+                            st.image(url, caption=f"Image {i+1}", use_container_width=True)
                             st.markdown(f"[Open in new tab]({url})")
             
             elif endpoint_selection == "Generate Template with Headlines (Stability)":
@@ -113,7 +113,7 @@ if submit_button:
                     
                     for i, (col, url) in enumerate(zip(columns, data["image_urls"])):
                         with col:
-                            st.image(url, caption=f"Image {i+1}", use_column_width=True)
+                            st.image(url, caption=f"Image {i+1}", use_container_width=True)
                             st.markdown(f"[Open in new tab]({url})")
             
             # Show response details in an expandable section
